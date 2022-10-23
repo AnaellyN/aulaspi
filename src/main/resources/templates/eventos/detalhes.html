@@ -10,19 +10,29 @@
 <body>
 	<div th:replace="~{menu :: menu}"></div>
 	<div class="container">
-	
+
 		<h1>Detalhes dos Eventos</h1>
-		
+
 		<div class="row">
 			<div class="col s12">
 				<div class="card">
 					<div class="card-content">
 						<span class="card-title">Evento</span>
-						<p><strong>Id:</strong> <span th:text="${evento.id}"></span></p>
-						<p><strong>Nome:</strong> <span th:text="${evento.nome}"></span></p>
-						<p><strong>Local:</strong> <span th:text="${evento.local}"></span></p>
-						<p><strong>Data: </strong> <span th:text="${evento.data}"></span></p>
-						<p><strong>Horário:</strong> <span th:text="${evento.horario}"></span></p>
+						<p>
+							<strong>Id:</strong> <span th:text="${evento.id}"></span>
+						</p>
+						<p>
+							<strong>Nome:</strong> <span th:text="${evento.nome}"></span>
+						</p>
+						<p>
+							<strong>Local:</strong> <span th:text="${evento.local}"></span>
+						</p>
+						<p>
+							<strong>Data: </strong> <span th:text="${evento.data}"></span>
+						</p>
+						<p>
+							<strong>Horário:</strong> <span th:text="${evento.horario}"></span>
+						</p>
 					</div>
 				</div>
 			</div>
@@ -32,22 +42,48 @@
 				<div class="card">
 					<div class="card-content">
 						<span class="card-title">Adicionar Convidado</span>
-						<form action="" method ="post">
-						<div>
-						<label>Nome:</label><input type="text" name="nome">
-						</div>
-						<div>
-						<label>RG:</label><input type="text" name="rg">
-						</div>
-						<div>
-						<button type="submit" class="btn">Salvar</button>
-						<button type="reset" class="btn">Limpar</button>  
-						</div>
+						<form action="" method="post">
+							<div>
+								<label>Nome:</label><input type="text" name="nome">
+							</div>
+							<div>
+								<label>RG:</label><input type="text" name="rg">
+							</div>
+							<div>
+								<button type="submit" class="btn">Salvar</button>
+								<button type="reset" class="btn">Limpar</button>
+							</div>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col s12">
+				<div class="card">
+					<div class="card-content">
+						<span class="card-title">Convidados</span>
+						<table class="highlight">
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>Nome</th>
+									<th>RG</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="c : ${convidados}">
+									<td th:text="${c.id}">1</td>
+									<td th:text="${c.nome}">Claúdia</td>
+									<td th:text="${c.rg}">123</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>
 </body>
 </html>
